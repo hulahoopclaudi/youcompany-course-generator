@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>youcompany course generator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f7fb;
+      margin: 0;
+      padding: 40px;
+      color: #1f2937;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 16px;
+      padding: 32px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+
+    h1, h2, h3 {
+      margin-top: 0;
+    }
+
+    textarea {
+      width: 100%;
+      min-height: 160px;
+      padding: 16px;
+      border: 1px solid #d1d5db;
+      border-radius: 12px;
+      font-size: 16px;
+      box-sizing: border-box;
+      resize: vertical;
+    }
+
+    button {
+      margin-top: 16px;
+      background: #2563eb;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      padding: 14px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #1d4ed8;
+    }
+
+    .output {
+      margin-top: 32px;
+      padding: 24px;
+      background: #f9fafb;
+      border-radius: 12px;
+      border: 1px solid #e5e7eb;
+    }
+
+    .module {
+      margin-top: 20px;
+      padding: 16px;
+      background: white;
+      border-radius: 12px;
+      border: 1px solid #e5e7eb;
+    }
+
+    .lesson {
+      margin-top: 12px;
+      padding: 12px;
+      background: #f3f4f6;
+      border-radius: 10px;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>youcompany course generator</h1>
+    <p>Version 1: einfacher Demo-Kursgenerator aus Text.</p>
+
+    <h2>Unternehmens-Text</h2>
+    <textarea id="inputText" placeholder="Füge hier Beispieltext ein ..."></textarea>
+    <button id="generateBtn">Kurs generieren</button>
+
+    <div id="output" class="output hidden">
+      <h2>Ergebnis</h2>
+      <h3 id="courseTitle"></h3>
+      <p id="courseDescription"></p>
+
+      <div class="module">
+        <h3>Modul 1: Willkommen und Überblick</h3>
+        <div class="lesson">
+          <strong>Lektion 1:</strong> Warum dieses Thema wichtig ist<br />
+          <em>Quizfrage:</em> Was ist das Ziel dieses Kurses?
+        </div>
+        <div class="lesson">
+          <strong>Lektion 2:</strong> Erste Grundlagen<br />
+          <em>Quizfrage:</em> Was gehört zu den Grundlagen?
+        </div>
+      </div>
+
+      <div class="module">
+        <h3>Modul 2: Aufgaben und Abläufe</h3>
+        <div class="lesson">
+          <strong>Lektion 1:</strong> Typische Aufgaben im Alltag<br />
+          <em>Quizfrage:</em> Welche Aufgabe kommt häufig vor?
+        </div>
+        <div class="lesson">
+          <strong>Lektion 2:</strong> Gute Umsetzung in der Praxis<br />
+          <em>Quizfrage:</em> Woran erkennt man eine gute Umsetzung?
+        </div>
+      </div>
+
+      <div class="module">
+        <h3>Modul 3: Zusammenfassung und Transfer</h3>
+        <div class="lesson">
+          <strong>Lektion 1:</strong> Wichtigste Punkte zum Mitnehmen<br />
+          <em>Quizfrage:</em> Was ist die wichtigste Erkenntnis?
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const generateBtn = document.getElementById("generateBtn");
+    const inputText = document.getElementById("inputText");
+    const output = document.getElementById("output");
+    const courseTitle = document.getElementById("courseTitle");
+    const courseDescription = document.getElementById("courseDescription");
+
+    generateBtn.addEventListener("click", () => {
+      const text = inputText.value.trim();
+
+      if (!text) {
+        alert("Bitte zuerst einen Text einfügen.");
+        return;
+      }
+
+      courseTitle.textContent = "Demo-Kurs aus deinem Text";
+      courseDescription.textContent =
+        "Dies ist eine erste feste Demo-Ausgabe für den Kursgenerator. Im nächsten Schritt wird daraus eine echte dynamische Generierung.";
+
+      output.classList.remove("hidden");
+    });
+  </script>
+</body>
+</html>
